@@ -56,19 +56,22 @@
         <?php
         $sql = 'SELECT * FROM tweets ORDER BY id desc';
         if(isset($conn)){
-            $result = $conn->query($sql);
-            while($row = mysqli_fetch_assoc($result)) {
-                ?>
+            $result = $conn->query($sql);?>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
+                       <h1>Your Tweets</h1>
+                    </div>
+                    <?php
+                    while($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="panel-body" style="background-color: #222; color: whitesmoke; margin-top: 5px;">
                         <?php echo $row["tweet"] . "<br>";?>
                     </div>
+                    <?php }?>
                 </div>
-                <?php
-            }
-        }
+        <?php }?>
 
-        ?>
+
     </div>
 </div>
 
